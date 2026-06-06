@@ -1,0 +1,231 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', system-ui, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#111827;
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR (MODERN UI) */
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#111827,#1f2937);
+    color:white;
+    padding:25px;
+    position:fixed;
+    right:0;
+    top:0;
+    height:100%;
+    box-shadow:-4px 0 20px rgba(0,0,0,0.15);
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#d1d5db;
+    padding:12px 14px;
+    margin-bottom:10px;
+    border-radius:10px;
+    font-size:14px;
+    transition:0.3s ease;
+}
+
+.sidebar a:hover{
+    background:#374151;
+    color:white;
+    transform:translateX(-5px);
+}
+
+/* MAIN AREA */
+.main-content{
+    width:calc(100% - 260px);
+    padding:30px;
+}
+
+/* SECTION CARDS (UI UX STYLE) */
+section{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+    border:1px solid #eef0f4;
+    transition:0.3s;
+}
+
+section:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* HEADINGS */
+h1{
+    font-size:26px;
+    margin-bottom:10px;
+    color:#111827;
+}
+
+h2{
+    font-size:18px;
+    margin-bottom:15px;
+    color:#374151;
+}
+
+/* INPUT UX STYLE */
+input, select{
+    width:100%;
+    padding:12px 14px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    outline:none;
+    font-size:14px;
+    transition:0.3s;
+    background:#fafafa;
+}
+
+input:focus, select:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 4px rgba(99,102,241,0.1);
+    background:white;
+}
+
+/* PRIMARY BUTTON */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#6366f1,#3b82f6);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.02);
+    box-shadow:0 10px 20px rgba(99,102,241,0.3);
+}
+
+/* STATUS BUTTONS UX */
+.status-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.status-buttons button{
+    flex:1;
+    min-width:120px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+/* STATUS COLORS (MODERN SOFT UI) */
+.present{
+    background:#22c55e;
+}
+.present:hover{
+    box-shadow:0 10px 20px rgba(34,197,94,0.3);
+}
+
+.absent{
+    background:#ef4444;
+}
+.absent:hover{
+    box-shadow:0 10px 20px rgba(239,68,68,0.3);
+}
+
+.leave{
+    background:#f59e0b;
+}
+.leave:hover{
+    box-shadow:0 10px 20px rgba(245,158,11,0.3);
+}
+
+.late{
+    background:#0ea5e9;
+}
+.late:hover{
+    box-shadow:0 10px 20px rgba(14,165,233,0.3);
+}
+
+/* TABLE (MODERN DATA GRID LOOK) */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+th{
+    background:#111827;
+    color:white;
+    padding:14px;
+    text-align:left;
+    font-size:13px;
+    letter-spacing:0.5px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eef0f4;
+    font-size:14px;
+    color:#374151;
+}
+
+tr:hover td{
+    background:#f9fafb;
+}
+
+/* LINKS */
+a{
+    color:#6366f1;
+    text-decoration:none;
+    font-weight:500;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* ANIMATION UX */
+section{
+    animation:fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .main-content{
+        width:100%;
+    }
+}
