@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- RIGHT SIDEBAR -->
+<div class="sidebar">
+    <a href="#register">👨‍🎓 Registration Student</a>
+    <a href="#attendance">📋 Mark Attendance</a>
+    <a href="#records">📊 Records</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- REGISTER SECTION -->
+    <section id="register">
+        <h2>Student Registration</h2>
+
+        <form action="/register" method="post">
+            <input type="text" name="roll" placeholder="Roll Number" required>
+            <input type="text" name="name" placeholder="Student Name" required>
+            <button type="submit">Register Student</button>
+        </form>
+    </section>
+
+    <!-- ATTENDANCE SECTION -->
+    <section id="attendance">
+        <h2>Mark Attendance</h2>
+
+        <form action="/attendance" method="post">
+            <input type="text" name="roll" placeholder="Roll Number" required>
+
+            <select name="status">
+                <option>Present</option>
+                <option>Absent</option>
+                <option>Leave</option>
+                <option>Late</option>
+            </select>
+
+            <button type="submit">Submit Attendance</button>
+        </form>
+<form action="/download">
+    <button type="submit">⬇ Download PDF</button>
+
+</form>
+        <!-- STATUS SHOW (UI ONLY) -->
+        <div class="status-buttons">
+            <button class="present">Present</button>
+            <button class="absent">Absent</button>
+            <button class="leave">Leave</button>
+            <button class="late">Late</button>
+        </div>
+    </section>
+<h3>Attendance Summary</h3>
+
+{% set total = records|length %}
+{% set present = records|selectattr(2,'equalto','Present')|list|length %}
+
+<p>
+Total: {{ total }} |
+Present: {{ present }} |
+Percentage:
+{{ (present / total * 100) if total > 0 else 0 }}%
+</p>
+    <!-- RECORDS SECTION -->
+    <section id="records">
+        <h2>Attendance Records</h2>
+
+        <table>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+
+            {% for r in records %}
+            <tr>
+                <td>{{ r[0] }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="/">Refresh Page</a>
+    </section>
+
+</div>
+
+</body>
+</html>
